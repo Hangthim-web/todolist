@@ -1,0 +1,31 @@
+    {% extends 'base.html' %}
+    {% load crispy_forms_tags %}
+    {% block title %} Hello this that{% endblock title %}
+    {% block content %}
+    <div class="container">
+
+        {% for todolist in todolist_list %}
+        <div class="mt-3">
+            <div class="list-group">
+                <a href="{% url 'detailView' todolist.pk %}" class="list-group-item list-group-item-info info" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ todolist.task }}</h5>
+                        <small>3 days ago</small>
+                    </div>
+                    <p class="mb-1">Some placeholder content in a paragraph.</p>
+                    <small>And some small print.</small>
+                </a>
+            </div>
+            <div class="button mt-3">
+                <button type="button" class="btn btn-danger text-light">
+                    <a href="{% url 'deleteView' todolist.pk %}" class="text-light" style="text-decoration:none">Delete</a>
+                </button>
+                <button type="button" class="btn btn-info">
+                    <a href="{% url 'updateView' todolist.pk %}" class="text-light" style="text-decoration:none">Edit</a>
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endblock content %}

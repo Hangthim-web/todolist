@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Detail view of the todolist{% endblock title %}
+{% block content %}
+<div class="container mt-3">
+    <h2>{{ todolist.task }}</h2>
+    <div>
+
+    <p>{{ todolist.start_date }}</p>
+    <p>{{ todolist.end_date }}</p>
+    </div>
+    <button type="button" class="btn btn-danger text-light"><a href="{% url 'deleteView' todolist.pk %}" class="text-light" style="text-decoration : none   ">Delete</a></button>
+    <button type="button" class="btn btn-info"><a href="{% url 'updateView' todolist.pk %}" class="text-light" style="text-decoration : none">Edit</a></button>
+
+</div>
+{% endblock content %}
